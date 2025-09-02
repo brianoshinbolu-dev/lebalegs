@@ -3,275 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lebaleg | Luxury Custom Footwear</title>
+    <title>LEBA EMPIRE | Luxury Footwear & Accessories</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         gold: '#D4AF37',
-                    },
-                    fontFamily: {
-                        serif: ['Playfair Display', 'serif'],
-                        sans: ['Montserrat', 'sans-serif'],
-                    },
+                        dark: '#0A0A0A',
+                    }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fafafa;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
         .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
         }
-        
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        
-        .gold-hover:hover {
-            color: #D4AF37;
-        }
-        
-        .whatsapp-btn:hover {
-            background-color: #25D366;
-            color: white;
+        .social-icon:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body class="font-sans bg-white text-black">
+<body class="bg-white">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-24 items-center">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="font-serif text-2xl font-medium tracking-wide">LEBALEG</span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-center space-x-8">
-                        <a href="#" class="gold-hover text-black px-3 py-2 text-sm font-medium">Home</a>
-                        <a href="#collection" class="gold-hover text-black px-3 py-2 text-sm font-medium">Collection</a>
-                        <a href="#about" class="gold-hover text-black px-3 py-2 text-sm font-medium">About</a>
-                        <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20ordering%20custom%20shoes%20from%20Lebaleg" class="whatsapp-btn flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm font-medium transition-all">
-                            <i class="fab fa-whatsapp"></i> WhatsApp Order
-                        </a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button class="mobile-menu-button p-2 rounded-md text-black">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
+    <nav class="bg-dark text-white py-4 px-6 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i data-feather="award" class="text-gold"></i>
+                <span class="text-xl font-semibold">LEBA <span class="text-gold">EMPIRE</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-gold transition">Home</a>
+                <a href="#about" class="hover:text-gold transition">About</a>
+                <a href="#products" class="hover:text-gold transition">Products</a>
+                <a href="#contact" class="hover:text-gold transition">Contact</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="https://instagram.com/lebaempireofficial" target="_blank" class="hover:text-gold transition"><i data-feather="instagram"></i></a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-gold transition"><i data-feather="twitter"></i></a>
+                <a href="https://telegram.org" target="_blank" class="hover:text-gold transition"><i data-feather="send"></i></a>
+                <button class="md:hidden" id="menu-toggle">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-dark py-4 px-6" id="mobile-menu">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="hover:text-gold transition">Home</a>
+                <a href="#about" class="hover:text-gold transition">About</a>
+                <a href="#products" class="hover:text-gold transition">Products</a>
+                <a href="#contact" class="hover:text-gold transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu hidden md:hidden fixed inset-0 z-40 bg-white pt-24">
-        <div class="px-4 space-y-4">
-            <a href="#" class="block px-3 py-2 text-base font-medium">Home</a>
-            <a href="#collection" class="block px-3 py-2 text-base font-medium">Collection</a>
-            <a href="#about" class="block px-3 py-2 text-base font-medium">About</a>
-            <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20ordering%20custom%20shoes%20from%20Lebaleg" class="whatsapp-btn flex items-center justify-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm font-medium w-48 mx-auto mt-4">
-                <i class="fab fa-whatsapp"></i> WhatsApp Order
-            </a>
-        </div>
-    </div>
-
     <!-- Hero Section -->
-    <section class="hero-image h-screen flex items-center justify-center text-center relative pt-24">
-        <div class="max-w-4xl px-6">
-            <h1 class="font-serif text-4xl md:text-6xl font-medium text-white mb-6">Luxury Custom Footwear by Lebaleg</h1>
-            <p class="text-white text-lg mb-8 max-w-2xl mx-auto">Handcrafted excellence for the discerning individual</p>
-            <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20ordering%20custom%20shoes%20from%20Lebaleg" class="whatsapp-btn inline-flex items-center gap-2 bg-black text-white px-8 py-4 rounded-full text-sm font-medium">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
+    <section id="home" class="hero-image h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Luxury Footwear & Accessories <br> <span class="text-gold">For Every Occasion</span></h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Handcrafted premium leather goods designed for sophistication and comfort</p>
+            <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20place%20an%20order." 
+               class="bg-gold hover:bg-yellow-600 text-dark font-bold py-3 px-8 rounded-full transition duration-300 inline-flex items-center">
+                <i data-feather="shopping-bag" class="mr-2"></i> Order on WhatsApp
             </a>
-        </div>
-    </section>
-
-    <!-- Collection Section -->
-    <section id="collection" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center mb-16">
-            <h2 class="font-serif text-3xl md:text-4xl font-medium mb-4">The Collection</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Each pair is meticulously crafted to perfection, ensuring unparalleled comfort and style.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Product 1 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1065&q=80" alt="Lebaleg Oxford" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Oxford Classic</h3>
-                        <p class="mt-1 text-sm text-gray-600">Black Calf Leather</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">$895</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20Oxford%20Classic%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Buy Now
-                </button>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Lebaleg Loafer" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Venetian Loafer</h3>
-                        <p class="mt-1 text-sm text-gray-600">Cognac Crocodile</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">$1,250</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20Venetian%20Loafer%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Buy Now
-                </button>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=998&q=80" alt="Lebaleg Derby" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Derby Elegance</h3>
-                        <p class="mt-1 text-sm text-gray-600">Espresso Calfskin</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">$975</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20Derby%20Elegance%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Buy Now
-                </button>
-            </div>
-            
-            <!-- Product 4 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Lebaleg Monk Strap" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Monk Strap</h3>
-                        <p class="mt-1 text-sm text-gray-600">Black & Gold Accents</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">$1,100</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20Monk%20Strap%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Buy Now
-                </button>
-            </div>
-            
-            <!-- Product 5 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1605030753481-bb38b08c384a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Lebaleg Chelsea Boot" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Chelsea Boot</h3>
-                        <p class="mt-1 text-sm text-gray-600">Dark Brown Suede</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">$1,050</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20Chelsea%20Boot%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Buy Now
-                </button>
-            </div>
-            
-            <!-- Product 6 -->
-            <div class="product-card group transition-all duration-300">
-                <div class="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-100">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1025&q=80" alt="Lebaleg Bespoke" class="h-full w-full object-cover object-center">
-                </div>
-                <div class="mt-4 flex justify-between">
-                    <div>
-                        <h3 class="font-serif text-lg font-medium">Bespoke Service</h3>
-                        <p class="mt-1 text-sm text-gray-600">Fully Customizable</p>
-                    </div>
-                    <p class="font-serif text-lg font-medium">From $2,500</p>
-                </div>
-                <button onclick="window.open('https://wa.me/1234567890?text=I%27m%20interested%20in%20ordering%20a%20Bespoke%20pair%20from%20Lebaleg', '_blank')" class="mt-4 w-full bg-black text-white py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                    Begin Consultation
-                </button>
-            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
-                <div class="mb-12 lg:mb-0">
-                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=998&q=80" alt="Lebaleg Craftsmanship" class="w-full h-auto rounded-lg shadow-lg">
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                         alt="LEBA EMPIRE Craftsmanship" 
+                         class="rounded-lg shadow-xl w-full max-w-md mx-auto">
                 </div>
-                <div>
-                    <h2 class="font-serif text-3xl md:text-4xl font-medium mb-6">The Lebaleg Philosophy</h2>
-                    <p class="text-gray-600 mb-6">
-                        Founded on the principles of uncompromising quality and timeless design, Lebaleg represents the pinnacle of custom footwear. Each pair is a testament to the art of traditional shoemaking, infused with contemporary elegance.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        Our master craftsmen dedicate over 200 hours to each pair, utilizing only the finest leathers and materials sourced from renowned tanneries across Europe. Every stitch, every cut, every detail is executed with precision and passion.
-                    </p>
-                    <p class="text-gray-600 mb-8">
-                        Lebaleg is not merely footwear—it's a statement of individuality, a celebration of craftsmanship, and an investment in enduring style.
-                    </p>
-                    <a href="https://wa.me/1234567890?text=I%27d%20like%20to%20learn%20more%20about%20Lebaleg%27s%20craftsmanship" class="inline-flex items-center gap-2 bg-black text-white px-8 py-3 rounded-full text-sm font-medium transition-all hover:bg-gray-800">
-                        <i class="fab fa-whatsapp"></i> Discuss Your Requirements
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="text-3xl font-bold mb-6 text-dark">About <span class="text-gold">LEBA EMPIRE</span></h2>
+                    <p class="mb-4 text-gray-700">Founded by Micheal Osh, LEBA EMPIRE represents the pinnacle of luxury craftsmanship in footwear and accessories.</p>
+                    <p class="mb-6 text-gray-700">Each product is meticulously designed and handcrafted using premium materials, ensuring unparalleled quality and sophistication for our discerning clientele.</p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20place%20an%20order." 
+                           class="bg-dark hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center">
+                            <i data-feather="message-circle" class="mr-2"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4 text-dark">Our <span class="text-gold">Collections</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover our premium range of handmade luxury footwear and accessories</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Shoe Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Shoes" 
+                             class="w-full h-full object-cover product-image" 
+                             data-images='[
+                                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1465877783223-4eba513e27c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Premium Leather Shoes</h3>
+                        <p class="text-gray-600 mb-4">Handcrafted leather shoes for the modern gentleman</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Premium%20Leather%20Shoes." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Bag Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Bag" 
+                             class="w-full h-full object-cover product-image"
+                             data-images='[
+                                "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Executive Leather Bag</h3>
+                        <p class="text-gray-600 mb-4">Sophisticated leather bags for business and leisure</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Executive%20Leather%20Bag." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Belt Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Belt" 
+                             class="w-full h-full object-cover product-image"
+                             data-images='[
+                                "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Designer Leather Belt</h3>
+                        <p class="text-gray-600 mb-4">Elegant belts to complete your formal attire</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Designer%20Leather%20Belt." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Sandals Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Sandals" 
+                             class="w-full h-full object-cover product-image"
+                             data-images='[
+                                "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Premium Leather Sandals</h3>
+                        <p class="text-gray-600 mb-4">Comfortable and stylish sandals for all occasions</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Premium%20Leather%20Sandals." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Slippers Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Slippers" 
+                             class="w-full h-full object-cover product-image"
+                             data-images='[
+                                "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Premium Slippers</h3>
+                        <p class="text-gray-600 mb-4">Luxurious comfort for your relaxation time</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Premium%20Slippers." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Purse Product -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-64 rounded-full overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1591348136761-943e97b7b978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Luxury Purse" 
+                             class="w-full h-full object-cover product-image"
+                             data-images='[
+                                "https://images.unsplash.com/photo-1591348136761-943e97b7b978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                                "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                             ]'>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-dark">Elegant Leather Purse</h3>
+                        <p class="text-gray-600 mb-4">Sophisticated purses for the modern woman</p>
+                        <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20order%20your%20Elegant%20Leather%20Purse." 
+                           class="bg-gold hover:bg-yellow-600 text-dark font-bold py-2 px-4 rounded-full transition duration-300 inline-flex items-center text-sm">
+                            <i data-feather="shopping-bag" class="mr-2"></i> Order Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Contact <span class="text-gold">LEBA EMPIRE</span></h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Reach out to us for inquiries, custom orders, or collaborations</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <div class="bg-gray-800 p-8 rounded-lg">
+                        <div class="flex items-center mb-6">
+                            <i data-feather="mail" class="text-gold mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Email</h3>
+                                <p class="text-gray-300">oshstefan@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <i data-feather="message-square" class="text-gold mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">WhatsApp</h3>
+                                <p class="text-gray-300">+234 703 690 0931</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="instagram" class="text-gold mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Instagram</h3>
+                                <p class="text-gray-300">@lebaempireofficial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4 mb-8">
+                        <a href="https://instagram.com/lebaempireofficial" target="_blank" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full social-icon transition">
+                            <i data-feather="instagram" class="text-gold"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full social-icon transition">
+                            <i data-feather="twitter" class="text-gold"></i>
+                        </a>
+                        <a href="https://telegram.org" target="_blank" class="bg-gray-700 hover:bg-gray-600 p-3 rounded-full social-icon transition">
+                            <i data-feather="send" class="text-gold"></i>
+                        </a>
+                    </div>
+                    <a href="https://wa.me/2347036900931?text=Hello%20LEBA%20Empire%2C%20I%20want%20to%20place%20an%20order." 
+                       class="bg-gold hover:bg-yellow-600 text-dark font-bold py-3 px-8 rounded-full transition duration-300 inline-flex items-center">
+                        <i data-feather="message-circle" class="mr-2"></i> Chat on WhatsApp
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-black text-white">
-        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="font-serif text-3xl md:text-4xl font-medium mb-6">Begin Your Lebaleg Journey</h2>
-            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
-                Experience the difference of truly custom footwear. Contact us via WhatsApp to start the process of creating your perfect pair.
-            </p>
-            <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20ordering%20custom%20shoes%20from%20Lebaleg" class="whatsapp-btn inline-flex items-center gap-2 bg-gold text-black px-8 py-4 rounded-full text-sm font-medium">
-                <i class="fab fa-whatsapp"></i> Order via WhatsApp
-            </a>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
-                    <span class="font-serif text-2xl font-medium tracking-wide">LEBALEG</span>
-                    <p class="text-gray-500 text-sm mt-2">Luxury Custom Footwear</p>
+    <footer class="bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="award" class="text-gold"></i>
+                        <span class="text-xl font-semibold">LEBA <span class="text-gold">EMPIRE</span></span>
+                    </div>
+                    <p class="text-gray-400 max-w-md">Luxury footwear and accessories crafted with perfection for the discerning individual.</p>
                 </div>
-                <div class="flex space-x-6 mb-6 md:mb-0">
-                    <a href="#" class="text-gray-400 hover:text-black">
-                        <i class="fab fa-instagram text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-black">
-                        <i class="fab fa-facebook-f text-xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-black">
-                        <i class="fab fa-pinterest-p text-xl"></i>
-                    </a>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="font-bold text-gold mb-4">Quick Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-gold transition">Home</a></li>
+                            <li><a href="#about" class="hover:text-gold transition">About</a></li>
+                            <li><a href="#products" class="hover:text-gold transition">Products</a></li>
+                            <li><a href="#contact" class="hover:text-gold transition">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-gold mb-4">Products</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#products" class="hover:text-gold transition">Shoes</a></li>
+                            <li><a href="#products" class="hover:text-gold transition">Bags</a></li>
+                            <li><a href="#products" class="hover:text-gold transition">Belts</a></li>
+                            <li><a href="#products" class="hover:text-gold transition">Sandals</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold text-gold mb-4">Connect</h3>
+                        <ul class="space-y-2">
+                            <li><a href="https://instagram.com/lebaempireofficial" target="_blank" class="hover:text-gold transition">Instagram</a></li>
+                            <li><a href="https://twitter.com" target="_blank" class="hover:text-gold transition">Twitter</a></li>
+                            <li><a href="https://telegram.org" target="_blank" class="hover:text-gold transition">Telegram</a></li>
+                            <li><a href="mailto:oshstefan@gmail.com" class="hover:text-gold transition">Email</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center md:items-end">
-                    <a href="https://wa.me/1234567890?text=I'm%20interested%20in%20ordering%20custom%20shoes%20from%20Lebaleg" class="flex items-center gap-2 text-black mb-4">
-                        <i class="fab fa-whatsapp"></i> +1 (234) 567-890
-                    </a>
-                    <p class="text-gray-500 text-sm">© 2023 Lebaleg. All rights reserved.</p>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 LEBA EMPIRE. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gold transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-gold transition">Terms of Service</a>
                 </div>
             </div>
         </div>
@@ -279,29 +372,32 @@
 
     <script>
         // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         });
         
-        // Close mobile menu when clicking on a link
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+        // Initialize animations and icons
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
         });
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        feather.replace();
+
+        // Product image rotation
+        document.addEventListener('DOMContentLoaded', function() {
+            const productImages = document.querySelectorAll('.product-image');
+            
+            productImages.forEach(img => {
+                const images = JSON.parse(img.dataset.images);
+                let currentIndex = 0;
                 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    img.src = images[currentIndex];
+                }, 5000);
             });
         });
     </script>
