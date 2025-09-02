@@ -31,10 +31,14 @@
             font-family: 'Playfair Display', serif;
         }
         .hero-image {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('./src/images/shoe1.jpg');
+            
             background-size: cover;
             background-position: center;
         }
+        /* https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80 */
+
+
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -95,7 +99,7 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <img src="./src/images/shoe1.jpg" 
                          alt="LEBA EMPIRE Craftsmanship" 
                          class="rounded-lg shadow-xl w-full max-w-md mx-auto">
                 </div>
@@ -125,14 +129,17 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Shoe Product -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up">
-                    <div class="w-full h-64 rounded-full overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <div class="w-full h-64 overflow-hidden">
+                        <img src="./src/images/shoe1.jpg"
                              alt="Luxury Shoes" 
                              class="w-full h-full object-cover product-image" 
                              data-images='[
-                                "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1465877783223-4eba513e27c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                "./src/images/shoe1.jpg",
+                                "./src/images/shoe2.jpg",
+                                "./src/images/shoe3.jpg",
+                                "./src/images/shoe4.jpg",
+                                "./src/images/shoe5.jpg",
+                                "./src/images/shoe6.jpg"
                              ]'>
                     </div>
                     <div class="p-6">
@@ -147,14 +154,14 @@
                 
                 <!-- Bag Product -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-full h-64 rounded-full overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <div class="w-full h-64  overflow-hidden">
+                        <img src="./src/images/bag1.jpg" 
                              alt="Luxury Bag" 
                              class="w-full h-full object-cover product-image"
                              data-images='[
-                                "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                "./src/images/bag1.jpg",
+                                "./src/images/bag2.jpg",
+                                "./src/images/bag3.jpg"
                              ]'>
                     </div>
                     <div class="p-6">
@@ -191,8 +198,8 @@
                 
                 <!-- Sandals Product -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up">
-                    <div class="w-full h-64 rounded-full overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <div class="w-full h-64  overflow-hidden">
+                        <img src="./src/images/sandals1.jpg" 
                              alt="Luxury Sandals" 
                              class="w-full h-full object-cover product-image"
                              data-images='[
@@ -213,14 +220,15 @@
                 
                 <!-- Slippers Product -->
                 <div class="bg-white rounded-lg shadow-md overflow-hidden product-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-full h-64 rounded-full overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                    <div class="w-full h-64  overflow-hidden">
+                        <img src="./src/images/slippers1.jpg" 
                              alt="Luxury Slippers" 
                              class="w-full h-full object-cover product-image"
                              data-images='[
-                                "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-                                "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                                "./src/images/slippers1.jpg",
+                                "./src/images/slippers2.jpg",
+                                "./src/images/slippers3.jpg",
+                                "./src/images/slipper4.jpg"
                              ]'>
                     </div>
                     <div class="p-6">
@@ -361,7 +369,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 LEBA EMPIRE. All rights reserved.</p>
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 LEBA EMPIRE. All rights reserved.</p>
                 <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 hover:text-gold transition">Privacy Policy</a>
                     <a href="#" class="text-gray-400 hover:text-gold transition">Terms of Service</a>
