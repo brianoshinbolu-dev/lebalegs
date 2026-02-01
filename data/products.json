@@ -1,0 +1,103 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Premium Leather Shoes",
+      "description": "Handcrafted leather shoes for the modern gentleman",
+      "category": "shoes",
+      "price": 45000,
+      "images": [
+        "/images/shoe1.jpg",
+        "/images/shoe2.jpg",
+        "/images/shoe3.jpg",
+        "/images/shoe4.jpg",
+        "/images/shoe5.jpg",
+        "/images/shoe6.jpg"
+      ],
+      "inStock": true,
+      "featured": true,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Premium Leather Shoes.",
+      "createdAt": "2026-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Executive Leather Bag",
+      "description": "Sophisticated leather bags for business and leisure",
+      "category": "bags",
+      "price": 35000,
+      "images": [
+        "/images/bag1.jpg",
+        "/images/bag2.jpg",
+        "/images/bag3.jpg"
+      ],
+      "inStock": true,
+      "featured": true,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Executive Leather Bag.",
+      "createdAt": "2026-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Designer Leather Belt",
+      "description": "Elegant belts to complete your formal attire",
+      "category": "belts",
+      "price": 15000,
+      "images": [
+        "/images/belt11.png",
+        "/images/belt22.png"
+      ],
+      "inStock": true,
+      "featured": true,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Designer Leather Belt.",
+      "createdAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-02-01T18:37:12.910Z"
+    },
+    {
+      "id": "4",
+      "name": "Premium Leather Sandals",
+      "description": "Comfortable and stylish sandals for all occasions",
+      "category": "sandals",
+      "price": 25000,
+      "images": [
+        "/images/sandals1.jpg",
+        "https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "inStock": true,
+      "featured": false,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Premium Leather Sandals.",
+      "createdAt": "2026-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "name": "Premium Slippers",
+      "description": "Luxurious comfort for your relaxation time",
+      "category": "slippers",
+      "price": 18000,
+      "images": [
+        "/images/slippers1.jpg",
+        "/images/slippers2.jpg",
+        "/images/slippers3.jpg",
+        "/images/slipper4.jpg"
+      ],
+      "inStock": true,
+      "featured": false,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Premium Slippers.",
+      "createdAt": "2026-02-01T00:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "name": "Elegant Leather Purse",
+      "description": "Sophisticated purses for the modern woman",
+      "category": "purses",
+      "price": 28000,
+      "images": [
+        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+      ],
+      "inStock": true,
+      "featured": false,
+      "whatsappMessage": "Hello LEBA Empire, I want to order your Elegant Leather Purse.",
+      "createdAt": "2026-02-01T00:00:00.000Z",
+      "updatedAt": "2026-02-01T18:20:48.492Z"
+    }
+  ]
+}

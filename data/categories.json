@@ -1,0 +1,34 @@
+{
+    "categories": [
+        {
+            "id": "shoes",
+            "name": "Shoes",
+            "slug": "shoes"
+        },
+        {
+            "id": "bags",
+            "name": "Bags",
+            "slug": "bags"
+        },
+        {
+            "id": "belts",
+            "name": "Belts",
+            "slug": "belts"
+        },
+        {
+            "id": "sandals",
+            "name": "Sandals",
+            "slug": "sandals"
+        },
+        {
+            "id": "slippers",
+            "name": "Slippers",
+            "slug": "slippers"
+        },
+        {
+            "id": "purses",
+            "name": "Purses",
+            "slug": "purses"
+        }
+    ]
+}
