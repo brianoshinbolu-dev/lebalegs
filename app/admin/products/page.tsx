@@ -8,6 +8,7 @@ import { Product } from '@/lib/types';
 export default function AdminProductsPage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         fetchProducts();
@@ -15,11 +16,20 @@ export default function AdminProductsPage() {
 
     async function fetchProducts() {
         try {
+            setError(null);
             const res = await fetch('/api/products');
             const data = await res.json();
-            setProducts(data);
+
+            if (Array.isArray(data)) {
+                setProducts(data);
+            } else {
+                console.error('Expected array but got:', data);
+                setError(data.error || 'Failed to fetch products');
+                setProducts([]);
+            }
         } catch (error) {
             console.error('Error fetching products:', error);
+            setError('An unexpected error occurred');
         } finally {
             setLoading(false);
         }
@@ -69,6 +79,16 @@ export default function AdminProductsPage() {
             {loading ? (
                 <div className="text-center py-20">
                     <p className="text-gray-600">Loading products...</p>
+                </div>
+            ) : error ? (
+                <div className="bg-red-50 rounded-lg p-6 text-center text-red-800 border border-red-200">
+                    <p className="font-semibold mb-2">Error: {error}</p>
+                    <button
+                        onClick={() => fetchProducts()}
+                        className="text-red-600 hover:underline font-medium"
+                    >
+                        Try again
+                    </button>
                 </div>
             ) : products.length === 0 ? (
                 <div className="bg-white rounded-lg shadow-md p-8 text-center">

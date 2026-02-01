@@ -20,6 +20,8 @@ export async function GET(request: Request) {
 
         const { data: products, error } = await query;
 
+        console.log('Supabase products fetch:', { count: products?.length, hasError: !!error });
+
         if (error) throw error;
 
         return NextResponse.json(products);
