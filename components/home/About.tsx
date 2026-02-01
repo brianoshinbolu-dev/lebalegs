@@ -15,6 +15,8 @@ export default function About() {
                                 alt="LEBA EMPIRE Craftsmanship"
                                 fill
                                 className="rounded-lg shadow-xl object-cover"
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                         </div>
                     </div>

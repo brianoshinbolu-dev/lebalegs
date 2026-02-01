@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
+import { put } from '@vercel/blob';
 
 export async function POST(request: NextRequest) {
     try {
@@ -16,33 +15,18 @@ export async function POST(request: NextRequest) {
 
         const uploadedUrls: string[] = [];
 
-        // Ensure the upload directory exists
-        const uploadDir = path.join(process.cwd(), 'public', 'images', 'uploads');
-        try {
-            await mkdir(uploadDir, { recursive: true });
-        } catch (error) {
-            // Directory might already exist, ignore error
-        }
-
         for (const file of files) {
             if (!file.type.startsWith('image/')) {
                 continue; // Skip non-image files
             }
 
-            const bytes = await file.arrayBuffer();
-            const buffer = Buffer.from(bytes);
+            // Upload to Vercel Blob
+            // Ensure you have BLOB_READ_WRITE_TOKEN in your env
+            const blob = await put(`products/${Date.now()}-${file.name}`, file, {
+                access: 'public',
+            });
 
-            // Create unique filename with timestamp
-            const timestamp = Date.now();
-            const originalName = file.name.replace(/\s+/g, '-');
-            const filename = `${timestamp}-${originalName}`;
-            const filepath = path.join(uploadDir, filename);
-
-            // Write file to public/images/uploads
-            await writeFile(filepath, buffer);
-
-            // Return the public URL path
-            uploadedUrls.push(`/images/uploads/${filename}`);
+            uploadedUrls.push(blob.url);
         }
 
         return NextResponse.json({

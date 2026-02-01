@@ -1,20 +1,18 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-import { Product } from '@/lib/types';
-
-const dataPath = path.join(process.cwd(), 'data', 'products.json');
+import { supabase } from '@/lib/supabase';
 
 export async function GET(
     request: Request,
     { params }: { params: { id: string } }
 ) {
     try {
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { products } = JSON.parse(data);
-        const product = products.find((p: Product) => p.id === params.id);
+        const { data: product, error } = await supabase
+            .from('products')
+            .select('*')
+            .eq('id', params.id)
+            .single();
 
-        if (!product) {
+        if (error || !product) {
             return NextResponse.json({ error: 'Product not found' }, { status: 404 });
         }
 
@@ -30,23 +28,22 @@ export async function PUT(
 ) {
     try {
         const updates = await request.json();
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { products } = JSON.parse(data);
 
-        const index = products.findIndex((p: Product) => p.id === params.id);
-        if (index === -1) {
+        const { data: product, error } = await supabase
+            .from('products')
+            .update({
+                ...updates,
+                updatedAt: new Date().toISOString()
+            })
+            .eq('id', params.id)
+            .select()
+            .single();
+
+        if (error || !product) {
             return NextResponse.json({ error: 'Product not found' }, { status: 404 });
         }
 
-        products[index] = {
-            ...products[index],
-            ...updates,
-            updatedAt: new Date().toISOString()
-        };
-
-        await fs.writeFile(dataPath, JSON.stringify({ products }, null, 2));
-
-        return NextResponse.json(products[index]);
+        return NextResponse.json(product);
     } catch (error) {
         return NextResponse.json({ error: 'Failed to update product' }, { status: 500 });
     }
@@ -57,16 +54,12 @@ export async function DELETE(
     { params }: { params: { id: string } }
 ) {
     try {
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { products } = JSON.parse(data);
+        const { error } = await supabase
+            .from('products')
+            .delete()
+            .eq('id', params.id);
 
-        const filtered = products.filter((p: Product) => p.id !== params.id);
-
-        if (filtered.length === products.length) {
-            return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-        }
-
-        await fs.writeFile(dataPath, JSON.stringify({ products: filtered }, null, 2));
+        if (error) throw error;
 
         return NextResponse.json({ success: true, message: 'Product deleted' });
     } catch (error) {

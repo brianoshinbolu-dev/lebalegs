@@ -75,12 +75,14 @@ export default function ProductDetailPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8">
                         {/* Image Gallery */}
                         <div>
-                            <div className="relative w-full h-96 mb-4">
+                            <div className="relative w-full h-96 mb-4 bg-gray-100 rounded-lg overflow-hidden">
                                 <Image
                                     src={product.images[currentImageIndex]}
                                     alt={product.name}
                                     fill
-                                    className="object-cover rounded-lg"
+                                    className="object-cover"
+                                    priority={currentImageIndex === 0}
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                             </div>
                             {product.images.length > 1 && (
@@ -97,6 +99,8 @@ export default function ProductDetailPage() {
                                                 alt={`${product.name} ${index + 1}`}
                                                 fill
                                                 className="object-cover"
+                                                loading="lazy"
+                                                sizes="80px"
                                             />
                                         </button>
                                     ))}
@@ -114,8 +118,8 @@ export default function ProductDetailPage() {
 
                             <div className="mb-6">
                                 <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold ${product.inStock
-                                        ? 'bg-green-100 text-green-800'
-                                        : 'bg-red-100 text-red-800'
+                                    ? 'bg-green-100 text-green-800'
+                                    : 'bg-red-100 text-red-800'
                                     }`}>
                                     {product.inStock ? 'In Stock' : 'Out of Stock'}
                                 </span>

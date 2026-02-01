@@ -16,14 +16,16 @@ export default function ProductCard({ product }: ProductCardProps) {
     }).format(product.price);
 
     return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden product-card">
+        <div className="bg-white rounded-lg shadow-md overflow-hidden product-card group">
             <Link href={`/products/${product.id}`}>
-                <div className="relative w-full h-64">
+                <div className="relative w-full h-64 bg-gray-100">
                     <Image
                         src={product.images[0]}
                         alt={product.name}
                         fill
-                        className="object-cover hover:scale-105 transition duration-300"
+                        className="object-cover transition-all duration-500 ease-in-out group-hover:scale-110"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                 </div>
             </Link>

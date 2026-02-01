@@ -83,21 +83,6 @@
       "featured": false,
       "whatsappMessage": "Hello LEBA Empire, I want to order your Premium Slippers.",
       "createdAt": "2026-02-01T00:00:00.000Z"
-    },
-    {
-      "id": "6",
-      "name": "Elegant Leather Purse",
-      "description": "Sophisticated purses for the modern woman",
-      "category": "purses",
-      "price": 28000,
-      "images": [
-        "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-      ],
-      "inStock": true,
-      "featured": false,
-      "whatsappMessage": "Hello LEBA Empire, I want to order your Elegant Leather Purse.",
-      "createdAt": "2026-02-01T00:00:00.000Z",
-      "updatedAt": "2026-02-01T18:20:48.492Z"
     }
   ]
 }

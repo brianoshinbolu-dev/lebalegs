@@ -1,52 +1,52 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
+import { supabase } from '@/lib/supabase';
 import { Product } from '@/lib/types';
-
-const dataPath = path.join(process.cwd(), 'data', 'products.json');
 
 export async function GET(request: Request) {
     try {
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { products } = JSON.parse(data);
-
         const { searchParams } = new URL(request.url);
         const category = searchParams.get('category');
         const featured = searchParams.get('featured');
 
-        let filteredProducts = products;
+        let query = supabase.from('products').select('*').order('createdAt', { ascending: false });
 
         if (category) {
-            filteredProducts = filteredProducts.filter((p: Product) => p.category === category);
+            query = query.eq('category', category);
         }
 
         if (featured === 'true') {
-            filteredProducts = filteredProducts.filter((p: Product) => p.featured === true);
+            query = query.eq('featured', true);
         }
 
-        return NextResponse.json(filteredProducts);
+        const { data: products, error } = await query;
+
+        if (error) throw error;
+
+        return NextResponse.json(products);
     } catch (error) {
+        console.error('API Error:', error);
         return NextResponse.json({ error: 'Failed to fetch products' }, { status: 500 });
     }
 }
 
 export async function POST(request: Request) {
     try {
-        const newProduct = await request.json();
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { products } = JSON.parse(data);
+        const productData = await request.json();
 
-        const product: Product = {
-            ...newProduct,
+        const newProduct = {
+            ...productData,
             id: Date.now().toString(),
             createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
         };
 
-        products.push(product);
-        await fs.writeFile(dataPath, JSON.stringify({ products }, null, 2));
+        const { data, error } = await supabase.from('products').insert([newProduct]).select().single();
 
-        return NextResponse.json(product, { status: 201 });
+        if (error) throw error;
+
+        return NextResponse.json(data, { status: 201 });
     } catch (error) {
+        console.error('API Error:', error);
         return NextResponse.json({ error: 'Failed to create product' }, { status: 500 });
     }
 }

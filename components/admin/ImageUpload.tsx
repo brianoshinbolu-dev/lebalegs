@@ -86,6 +86,8 @@ export default function ImageUpload({ images, onImagesChange }: ImageUploadProps
                                     alt={`Product image ${index + 1}`}
                                     fill
                                     className="object-cover"
+                                    loading="lazy"
+                                    sizes="150px"
                                 />
                             </div>
                             <button

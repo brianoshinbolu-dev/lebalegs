@@ -1,18 +1,20 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-import path from 'path';
-
-const dataPath = path.join(process.cwd(), 'data', 'categories.json');
+import { supabase } from '@/lib/supabase';
 
 export async function GET() {
     try {
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { categories } = JSON.parse(data);
+        const { data: categories, error } = await supabase
+            .from('categories')
+            .select('*')
+            .order('name', { ascending: true });
+
+        if (error) throw error;
         return NextResponse.json(categories);
     } catch (error) {
         return NextResponse.json({ error: 'Failed to fetch categories' }, { status: 500 });
     }
 }
+
 export async function POST(request: Request) {
     try {
         const { name } = await request.json();
@@ -21,21 +23,23 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Category name is required' }, { status: 400 });
         }
 
-        const data = await fs.readFile(dataPath, 'utf-8');
-        const { categories } = JSON.parse(data);
-
         const id = name.toLowerCase().replace(/\s+/g, '-');
+        const newCategory = { id, name, slug: id };
 
-        if (categories.find((c: any) => c.id === id)) {
-            return NextResponse.json({ error: 'Category already exists' }, { status: 400 });
+        const { data, error } = await supabase
+            .from('categories')
+            .insert([newCategory])
+            .select()
+            .single();
+
+        if (error) {
+            if (error.code === '23505') {
+                return NextResponse.json({ error: 'Category already exists' }, { status: 400 });
+            }
+            throw error;
         }
 
-        const newCategory = { id, name, slug: id };
-        categories.push(newCategory);
-
-        await fs.writeFile(dataPath, JSON.stringify({ categories }, null, 2));
-
-        return NextResponse.json(newCategory);
+        return NextResponse.json(data);
     } catch (error) {
         return NextResponse.json({ error: 'Failed to add category' }, { status: 500 });
     }
