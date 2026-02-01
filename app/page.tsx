@@ -4,21 +4,24 @@ import Contact from '@/components/home/Contact';
 import Link from 'next/link';
 import ProductCard from '@/components/products/ProductCard';
 import { Product } from '@/lib/types';
-
-async function getFeaturedProducts() {
-    try {
-        const res = await fetch(`http://localhost:3000/api/products?featured=true`, {
-            cache: 'no-store'
-        });
-        if (!res.ok) return [];
-        return res.json();
-    } catch (error) {
-        return [];
-    }
-}
+import { supabase } from '@/lib/supabase';
 
 export default async function HomePage() {
-    const featuredProducts = await getFeaturedProducts();
+    let featuredProducts: Product[] = [];
+
+    try {
+        const { data, error } = await supabase
+            .from('products')
+            .select('*')
+            .eq('featured', true)
+            .limit(3);
+
+        if (!error && data) {
+            featuredProducts = data as Product[];
+        }
+    } catch (error) {
+        console.error('Error fetching featured products:', error);
+    }
 
     return (
         <>
